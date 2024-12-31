@@ -1,0 +1,305 @@
+body {
+      font-family: sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background-color: #2c003e;
+      color: #fff;
+    }
+    .dark-mode {
+      background-color: #2c003e;
+      color: #fff;
+    }
+    .light-mode {
+      background-color: #f0f0f0;
+      color: #333;
+    }
+    .light-mode .header-icons button,
+    .light-mode .talk-button {
+      color: #333; /* Dark text for icons in light mode */
+    }
+    .dark-mode .applet,
+    .dark-mode .history {
+      background-color: #2c003e; /* Dark purple background for applet in dark mode */
+      color: #fff;
+    }
+    .light-mode .applet,
+    .light-mode .history {
+      background-color: #fff; /* Light background for applet in light mode */
+      color: #333; /* Dark text for applet in light mode */
+    }
+    .container {
+      width: 100%;
+      max-width: 800px; /* Increased max-width for desktop */
+      height: 100vh; /* Make container take full viewport height */
+      display: flex;
+      flex-direction: column;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+    .header {
+      padding: 1rem 0; /* Reduce top/bottom padding in header */
+      display: flex;
+      justify-content: space-between;
+      background-color: transparent;
+      position: relative;
+    }
+    .header-icons {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      padding: 0 1rem;
+    }
+    .header-icons button {
+      background: none;
+      border: none;
+      color: #fff;
+      font-size: 1.2rem;
+      cursor: pointer;
+      padding: 0.5rem;
+    }
+    .dark-mode .header-icons button {
+      color: #fff;
+    }
+    .light-mode .header-icons button {
+      color: #333;
+    }
+    .header-icons button:hover {
+      opacity: 0.8;
+    }
+    .main {
+      flex-grow: 1;
+      padding: 1rem;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+    }
+    .conversation {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      font-size: 1.5rem;
+    }
+    .message {
+      max-width: 80%;
+      padding: 12px 16px;
+      margin-bottom: 8px;
+      align-self: flex-start; /* Align all messages to the left */
+    }
+    .user-message {
+      color: white;
+    }
+    .ai-message {
+      color: #fff;
+      position: relative;
+    }
+    .ai-message::after {
+      content: '\f1c9'; /* Microphone icon */
+      font-family: 'Font Awesome 5 Free';
+      font-weight: 900;
+      position: absolute;
+      left: 10px;
+      bottom: -15px;
+      font-size: 0.8rem;
+      color: #333; /* Dark text for microphone icon */
+    }
+    .typing-indicator {
+      display: inline-block;
+      width: 60px;
+      height: 30px;
+      position: relative;
+    }
+    .typing-indicator span {
+      position: absolute;
+      width: 8px;
+      height: 8px;
+      background: #fff;
+      border-radius: 50%;
+      animation: typing 1s infinite ease-in-out;
+    }
+    .typing-indicator span:nth-child(1) {
+      left: 0;
+      animation-delay: 0s;
+    }
+    .typing-indicator span:nth-child(2) {
+      left: 15px;
+      animation-delay: 0.2s;
+    }
+    .typing-indicator span:nth-child(3) {
+      left: 30px;
+      animation-delay: 0.4s;
+    }
+    @keyframes typing {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+    .footer {
+      padding: 1rem;
+      display: flex;
+      align-items: center;
+      background-color: transparent;
+    }
+    .message-input {
+      flex-grow: 1;
+      padding: 0.8rem;
+      border: none;
+      border-radius: 20px;
+      background-color: #fff;
+      color: #000;
+      margin-right: 1rem;
+    }
+    .talk-button {
+      background: none;
+      border: none;
+      color: #fff;
+      font-size: 1.5rem;
+      cursor: pointer;
+      margin-left: 1rem; /* Add margin to the left of the talk button */
+    }
+    .dark-mode .talk-button {
+      color: #fff;
+    }
+    .light-mode .talk-button {
+      color: #333;
+    }
+    .applet,
+    .history {
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 300px;
+      height: 100%;
+      background-color: #2a2a2a;
+      padding: 1rem;
+      transform: translateX(100%);
+      transition: transform 0.3s ease-in-out;
+      z-index: 1000;
+      overflow-y: auto;
+    }
+    .dark-mode .applet,
+    .dark-mode .history {
+      background-color: #2c003e; /* Dark purple background for applet in dark mode */
+      color: #fff;
+    }
+    .light-mode .applet,
+    .light-mode .history {
+      background-color: #fff; /* Light background for applet in light mode */
+      color: #333; /* Dark text for applet in light mode */
+    }
+    .applet.open,
+    .history.open {
+      transform: translateX(0);
+    }
+    .settings-panel,
+    .history-panel {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+    .settings-header,
+    .history-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1rem;
+    }
+    .settings-header h2,
+    .history-header h2 {
+      margin: 0;
+    }
+    .settings-header button,
+    .history-header button {
+      background: none;
+      border: none;
+      color: #fff;
+      font-size: 1.2rem;
+      cursor: pointer;
+    }
+    .dark-mode .settings-header button,
+    .dark-mode .history-header button {
+      color: #fff;
+    }
+    .light-mode .settings-header button,
+    .light-mode .history-header button {
+      color: #333;
+    }
+    .settings-content {
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .setting-item {
+      display: flex;
+      flex-direction: column;
+    }
+    .setting-item label {
+      margin-bottom: 0.5rem;
+    }
+    .setting-item input,
+    .setting-item textarea {
+      padding: 0.5rem;
+      border: none;
+      border-radius: 5px;
+      background-color: #fff; /* White background for input fields */
+      color: #333; /* Dark text for input fields */
+    }
+    .setting-item textarea {
+      height: 100px;
+    }
+    .setting-item button {
+      background: none;
+      border: 1px solid #333; /* Dark border for buttons */
+      color: #333; /* Dark text for buttons */
+      padding: 0.5rem;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .dark-mode .setting-item button {
+      color: #fff;
+      border-color: #fff;
+    }
+    .light-mode .setting-item button {
+      color: #333;
+      border-color: #333;
+    }
+    #saveSettings {
+      background-color: #3b82f6;
+      border: none;
+      padding: 0.8rem;
+      border-radius: 5px;
+      cursor: pointer;
+      color: #fff; /* White text for save button */
+    }
+    .history-list {
+      flex-grow: 1;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .history-actions {
+      display: flex;
+      gap: 10px;
+    }
+    .history-actions button {
+      flex-grow: 1;
+      background: none;
+      border: 1px solid #333; /* Dark border for buttons */
+      color: #333; /* Dark text for buttons */
+      padding: 0.5rem;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .dark-mode .history-actions button {
+      color: #fff;
+      border-color: #fff;
+    }
+    .light-mode .history-actions button {
+      color: #333;
+      border-color: #333;
+    }
