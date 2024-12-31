@@ -10,7 +10,7 @@ This project began as a simple `index.html` file. Through iterative development 
 **Key Milestones:**
    **Initial Concept:** A basic chatbot with text-based input and output.
 *   **Interface Enhancement:** A significant redesign of the user interface, focusing on voice interaction and a cleaner, more intuitive design.
-*   **Free STT/TTS Integration:** Implementation of free speech-to-text and text-to-speech capabilities using the webkitSpeech API, removing the need for paid subscriptions.
+*   **Free STT/TTS Integration:** Implementation of free speech-to-text and text-to-speech capabilities using the webkitSpeechRecognition, removing the need for paid subscriptions.
 *   **Multi-LLM Support (In Progress):**  Implementation of support for multiple LLMs from various APIs.
 ## Roadmap
 This roadmap outlines the planned development stages for the project.
